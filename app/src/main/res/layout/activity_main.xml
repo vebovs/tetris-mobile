@@ -6,13 +6,46 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <com.vebovs.tetris.GameView
+        android:id="@+id/gameView"
+        android:layout_width="match_parent"
+        android:layout_height="521dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gameView"
+        app:layout_constraintVertical_bias="0.0">
+
+        <Button
+            android:id="@+id/btnLeft"
+            android:layout_width="137dp"
+            android:layout_height="80dp"
+            android:text="@string/left" />
+
+        <Button
+            android:id="@+id/btnRotate"
+            android:layout_width="137dp"
+            android:layout_height="80dp"
+            android:text="@string/rotate" />
+
+        <Button
+            android:id="@+id/btnRight"
+            android:layout_width="137dp"
+            android:layout_height="80dp"
+            android:text="@string/right" />
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
