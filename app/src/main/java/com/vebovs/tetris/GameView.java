@@ -128,10 +128,18 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 }
             }
         }
+        boolean border = false;
         if(!collide) {
             ArrayList<Position> positions = this.piece.getPositions();
             for (int i = 0; i < positions.size(); i++) {
-                positions.get(i).setX(positions.get(i).getX() - this.size);
+                if(positions.get(i).getX() <= -this.base + this.size){
+                    border = true;
+                }
+            }
+            if(!border) {
+                for (int i = 0; i < positions.size(); i++) {
+                    positions.get(i).setX(positions.get(i).getX() - this.size);
+                }
             }
         }
     }
@@ -148,10 +156,18 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 }
             }
         }
+        boolean border = false;
         if(!collide) {
             ArrayList<Position> positions = this.piece.getPositions();
             for (int i = 0; i < positions.size(); i++) {
-                positions.get(i).setX(positions.get(i).getX() + this.size);
+                if(positions.get(i).getX() >= this.base - this.size){
+                    border = true;
+                }
+            }
+            if(!border) {
+                for (int i = 0; i < positions.size(); i++) {
+                    positions.get(i).setX(positions.get(i).getX() + this.size);
+                }
             }
         }
     }
