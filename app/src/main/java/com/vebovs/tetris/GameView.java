@@ -9,6 +9,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -29,7 +30,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         SurfaceHolder holder = getHolder();
         holder.addCallback(this);
         this.gameThread = new GameThread(holder, this);
-        this.piece = new Piece(0, 0, 0, 50, 0, 100, 0, 150); // Dummie cube for testing
+        this.piece = new Piece(0, 0, 0, 50, 50, 0, 50, 50); // Dummie cube for testing
     }
 
     public GameThread getGameThread(){
@@ -50,12 +51,12 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         canvas.drawLine(0, this.bottom, deviceWidth , this.bottom, new Paint(Color.RED));
     }
 
-    private boolean Collision(){
+    private boolean CollisionY(){
         for(int i = 0; i < this.pieces.size(); i++){
             ArrayList<Position> positions = this.pieces.get(i).getPositions();
             for(int j = 0; j < positions.size(); j++){
                 for(int k = 0; k < positions.size(); k++){
-                    if(this.piece.getPositions().get(j).getY() == positions.get(k).getY() - this.size){
+                    if(this.piece.getPositions().get(j).getY() == positions.get(k).getY() - this.size && this.piece.getPositions().get(j).getX() == positions.get(k).getX()){
                         return true;
                     }
                 }
@@ -71,7 +72,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             if(positions.get(i).getY() < this.bottom - this.size){
                 positions.get(i).setY(positions.get(i).getY() + this.size);
                 if(!hit){
-                    if(positions.get(i).getY() == this.bottom - this.size || Collision()){
+                    if(positions.get(i).getY() == this.bottom - this.size || CollisionY()){
                         hit = true;
                     }
                 }
@@ -112,7 +113,47 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         } else {
             return this.piece.newC();
         }*/
-        return this.piece.newI(); // Returns same piece type and avoids logic for testing
+        return this.piece.newC(); // Returns same piece type and avoids logic for testing
+    }
+
+    public void Left(){
+        boolean collide = false;
+        for(int i = 0; i < this.pieces.size(); i++){
+            ArrayList<Position> positions = this.pieces.get(i).getPositions();
+            for(int j = 0; j < positions.size(); j++){
+                for(int k = 0; k < positions.size(); k++){
+                    if(this.piece.getPositions().get(j).getY() == positions.get(k).getY() && (this.piece.getPositions().get(j).getX() + this.size == positions.get(k).getX() || this.piece.getPositions().get(j).getX() - this.size == positions.get(k).getX())){
+                        collide = true;
+                    }
+                }
+            }
+        }
+        if(!collide) {
+            ArrayList<Position> positions = this.piece.getPositions();
+            for (int i = 0; i < positions.size(); i++) {
+                positions.get(i).setX(positions.get(i).getX() - this.size);
+            }
+        }
+    }
+
+    public void Right(){
+        boolean collide = false;
+        for(int i = 0; i < this.pieces.size(); i++){
+            ArrayList<Position> positions = this.pieces.get(i).getPositions();
+            for(int j = 0; j < positions.size(); j++){
+                for(int k = 0; k < positions.size(); k++){
+                    if(this.piece.getPositions().get(j).getY() == positions.get(k).getY() && (this.piece.getPositions().get(j).getX() + this.size == positions.get(k).getX() || this.piece.getPositions().get(j).getX() - this.size == positions.get(k).getX())){
+                        collide = true;
+                    }
+                }
+            }
+        }
+        if(!collide) {
+            ArrayList<Position> positions = this.piece.getPositions();
+            for (int i = 0; i < positions.size(); i++) {
+                positions.get(i).setX(positions.get(i).getX() + this.size);
+            }
+        }
     }
 
     @Override

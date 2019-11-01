@@ -31,7 +31,8 @@
             android:id="@+id/btnLeft"
             android:layout_width="137dp"
             android:layout_height="80dp"
-            android:text="@string/left" />
+            android:text="@string/left"
+            android:onClick="Left"/>
 
         <Button
             android:id="@+id/btnRotate"
@@ -43,7 +44,8 @@
             android:id="@+id/btnRight"
             android:layout_width="137dp"
             android:layout_height="80dp"
-            android:text="@string/right" />
+            android:text="@string/right"
+            android:onClick="Right"/>
 
     </LinearLayout>
 
