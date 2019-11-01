@@ -1,7 +1,6 @@
 package com.vebovs.tetris;
 
 import android.graphics.Canvas;
-import android.util.Log;
 import android.view.SurfaceHolder;
 
 public class GameThread extends Thread {
@@ -9,7 +8,7 @@ public class GameThread extends Thread {
     private GameView gameView;
     private boolean run = false;
     private boolean pause = false;
-    private final int time = 200;
+    private final int time = 150; // Time between every drawing
 
     public GameThread(SurfaceHolder holder, GameView gameView){
         this.holder = holder;
