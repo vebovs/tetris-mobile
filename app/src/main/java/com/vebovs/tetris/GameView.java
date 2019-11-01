@@ -122,7 +122,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             ArrayList<Position> positions = this.pieces.get(i).getPositions();
             for(int j = 0; j < positions.size(); j++){
                 for(int k = 0; k < positions.size(); k++){
-                    if(this.piece.getPositions().get(j).getY() == positions.get(k).getY() && (this.piece.getPositions().get(j).getX() + this.size == positions.get(k).getX() || this.piece.getPositions().get(j).getX() - this.size == positions.get(k).getX())){
+                    if(this.piece.getPositions().get(j).getY() == positions.get(k).getY() - this.size && (this.piece.getPositions().get(j).getX() + this.size == positions.get(k).getX() || this.piece.getPositions().get(j).getX() - this.size == positions.get(k).getX())){
                         collide = true;
                     }
                 }
@@ -150,7 +150,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             ArrayList<Position> positions = this.pieces.get(i).getPositions();
             for(int j = 0; j < positions.size(); j++){
                 for(int k = 0; k < positions.size(); k++){
-                    if(this.piece.getPositions().get(j).getY() == positions.get(k).getY() && (this.piece.getPositions().get(j).getX() + this.size == positions.get(k).getX() || this.piece.getPositions().get(j).getX() - this.size == positions.get(k).getX())){
+                    if(this.piece.getPositions().get(j).getY() == positions.get(k).getY() - this.size && (this.piece.getPositions().get(j).getX() + this.size == positions.get(k).getX() || this.piece.getPositions().get(j).getX() - this.size == positions.get(k).getX())){
                         collide = true;
                     }
                 }
