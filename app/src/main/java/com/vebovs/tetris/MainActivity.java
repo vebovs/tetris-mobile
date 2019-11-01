@@ -21,4 +21,8 @@ public class MainActivity extends Activity {
     public void Right(View view){
         this.gameView.Right();
     }
+
+    public void Rotate(View view){
+        this.gameView.Rotate();
+    }
 }

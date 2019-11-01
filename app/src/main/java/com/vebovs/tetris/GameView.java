@@ -30,7 +30,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         SurfaceHolder holder = getHolder();
         holder.addCallback(this);
         this.gameThread = new GameThread(holder, this);
-        this.piece = new Piece(0, 0, 0, 50, 50, 0, 50, 50); // Dummie cube for testing
+        this.piece = new Piece(0, 0, 0, 50, 0, 100, 50, 100); // Dummie for testing
     }
 
     public GameThread getGameThread(){
@@ -113,7 +113,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         } else {
             return this.piece.newC();
         }*/
-        return this.piece.newC(); // Returns same piece type and avoids logic for testing
+        return this.piece.newL(); // Returns same piece type and avoids logic for testing
     }
 
     public void Left(){
@@ -169,6 +169,20 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                     positions.get(i).setX(positions.get(i).getX() + this.size);
                 }
             }
+        }
+    }
+
+    public void Rotate(){
+        ArrayList<Position> positions = this.piece.getPositions();
+        int distance_y = positions.get(0).getY();
+        int distance_x = positions.get(0).getX();
+        for(int i = 0; i < positions.size(); i++){
+            int y = positions.get(i).getY() - distance_y;
+            int x = positions.get(i).getX() - distance_x;
+            int new_x = - y;
+            int new_y = x;
+            positions.get(i).setX(new_x + distance_x);
+            positions.get(i).setY(new_y + distance_y);
         }
     }
 
