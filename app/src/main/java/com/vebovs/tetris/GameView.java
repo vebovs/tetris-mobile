@@ -46,9 +46,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         canvas.drawColor(Color.WHITE);
         drawPiece(canvas);
         for(int i = 0; i < this.pieces.size(); i++){
-            drawShape(canvas, this.pieces.get(i).getPositions());
+            drawShape(canvas, this.pieces.get(i).getPositions(), this.pieces.get(i).getColor());
         }
-        canvas.drawLine(0, this.bottom, deviceWidth , this.bottom, new Paint(Color.RED));
+        canvas.drawLine(0, this.bottom, deviceWidth , this.bottom, new Paint(Color.BLACK));
     }
 
     private boolean CollisionY(){
@@ -85,19 +85,18 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     private void drawPiece(Canvas canvas){
-        ArrayList<Position> positions = this.piece.getPositions();
-        drawShape(canvas, positions);
+        drawShape(canvas, this.piece.getPositions(), this.piece.getColor());
     }
 
-    private void drawShape(Canvas canvas, ArrayList<Position> positions){
+    private void drawShape(Canvas canvas, ArrayList<Position> positions, int color){
         Paint paint = new Paint();
         for(int i = 0; i < positions.size(); i++){
             paint.setStyle(Paint.Style.FILL);
-            paint.setColor(Color.BLACK);
+            paint.setColor(color);
             Rect r = new Rect(positions.get(i).getX() + this.base, positions.get(i).getY(), positions.get(i).getX() + this.size + this.base, positions.get(i).getY() + this.size);
             canvas.drawRect(r, paint);
             paint.setStyle(Paint.Style.STROKE);
-            paint.setColor(Color.GRAY);
+            paint.setColor(Color.BLACK);
             canvas.drawRect(r, paint);
         }
     }
@@ -106,16 +105,16 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         int result = random.nextInt(100);
         if(result < 25){
             //I shape
-            return new Piece(0, 0, 0, 50, 0, 100, 0, 150);
+            return new Piece(0, 0, 0, 50, 0, 100, 0, 150, Color.RED);
         } else if(result >= 25 && result < 50){
             //L shape
-            return new Piece(0, 0, 0, 50, 0, 100, 50, 100);
+            return new Piece(0, 0, 0, 50, 0, 100, 50, 100, Color.BLUE);
         } else if(result >= 50 && result < 75){
             //S shape
-            return new Piece(0, 0, 50, 0, 50, 50, 100, 50);
+            return new Piece(0, 0, 50, 0, 50, 50, 100, 50, Color.GREEN);
         } else {
             //Cube shape
-            return new Piece(0, 0, 0, 50, 50, 0, 50, 50);
+            return new Piece(0, 0, 0, 50, 50, 0, 50, 50, Color.YELLOW);
         }
     }
 

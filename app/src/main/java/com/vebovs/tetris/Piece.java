@@ -1,23 +1,30 @@
 package com.vebovs.tetris;
 
+import android.graphics.Color;
+import android.graphics.Paint;
+
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
 public class Piece {
     private ArrayList<Position> positions = new ArrayList<>();
+    private int color;
     private int size = 50; // Width and height of each square making up every piece
 
     Piece(){}
 
-    Piece(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4){
+    Piece(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4, int color){
         positions.add(new Position(x1, y1));
         positions.add(new Position(x2, y2));
         positions.add(new Position(x3, y3));
         positions.add(new Position(x4, y4));
+        this.color = color;
     }
 
     public ArrayList<Position> getPositions() { return  this.positions; }
+
+    public int getColor() { return  this.color; }
 
     public int getSize() { return this.size; }
 }
