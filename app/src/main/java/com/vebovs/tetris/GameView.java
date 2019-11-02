@@ -173,16 +173,33 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     public void Rotate(){
-        ArrayList<Position> positions = this.piece.getPositions();
-        int distance_y = positions.get(0).getY();
-        int distance_x = positions.get(0).getX();
-        for(int i = 0; i < positions.size(); i++){
-            int y = positions.get(i).getY() - distance_y;
-            int x = positions.get(i).getX() - distance_x;
-            int new_x = - y;
-            int new_y = x;
-            positions.get(i).setX(new_x + distance_x);
-            positions.get(i).setY(new_y + distance_y);
+        boolean collide = false;
+        int distance_y = this.piece.getPositions().get(0).getY();
+        int distance_x = this.piece.getPositions().get(0).getX();
+        for(int i = 0; i < this.pieces.size(); i++){
+            ArrayList<Position> positions = this.pieces.get(i).getPositions();
+            for(int j = 0; j < positions.size(); j++){
+                int y = this.piece.getPositions().get(j).getY() - distance_y;
+                int x = this.piece.getPositions().get(j).getX() - distance_x;
+                int new_x = - y + distance_x;
+                int new_y = x + distance_y;
+                for(int k = 0; k < positions.size(); k++){
+                    if((positions.get(k).getX() == new_x + this.size || positions.get(k).getX() == new_x - this.size) && (positions.get(k).getY() == new_y - this.size || positions.get(k).getY() == new_y + this.size)){
+                        collide = true;
+                    }
+                }
+            }
+        }
+        if(!collide) {
+            ArrayList<Position> positions = this.piece.getPositions();
+            for (int i = 0; i < positions.size(); i++) {
+                int y = positions.get(i).getY() - distance_y;
+                int x = positions.get(i).getX() - distance_x;
+                int new_x = -y + distance_x;
+                int new_y = x + distance_y;
+                positions.get(i).setX(new_x);
+                positions.get(i).setY(new_y);
+            }
         }
     }
 
