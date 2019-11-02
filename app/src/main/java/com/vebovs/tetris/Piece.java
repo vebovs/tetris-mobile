@@ -20,22 +20,6 @@ public class Piece {
     public ArrayList<Position> getPositions() { return  this.positions; }
 
     public int getSize() { return this.size; }
-
-    public Piece newI(){
-        return new Piece(0, 0, 0, 50, 0, 100, 0, 150);
-    }
-
-    public Piece newL(){
-        return new Piece(0, 0, 0, 50, 0, 100, 50, 100);
-    }
-
-    public Piece newS(){
-        return new Piece(0, 0, 50, 0, 50, 50, 100, 50);
-    }
-
-    public Piece newC(){
-        return new Piece(0, 0, 0, 50, 50, 0, 50, 50);
-    }
 }
 
 class Position {

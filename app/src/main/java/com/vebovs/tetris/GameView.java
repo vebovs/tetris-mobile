@@ -30,7 +30,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         SurfaceHolder holder = getHolder();
         holder.addCallback(this);
         this.gameThread = new GameThread(holder, this);
-        this.piece = new Piece(0, 0, 0, 50, 0, 100, 50, 100); // Dummie for testing
+        this.piece = newPiece();
     }
 
     public GameThread getGameThread(){
@@ -103,17 +103,20 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     private Piece newPiece(){
-        /*int result = random.nextInt(100);
+        int result = random.nextInt(100);
         if(result < 25){
-            return this.piece.newI();
+            //I shape
+            return new Piece(0, 0, 0, 50, 0, 100, 0, 150);
         } else if(result >= 25 && result < 50){
-            return this.piece.newL();
+            //L shape
+            return new Piece(0, 0, 0, 50, 0, 100, 50, 100);
         } else if(result >= 50 && result < 75){
-            return this.piece.newS();
+            //S shape
+            return new Piece(0, 0, 50, 0, 50, 50, 100, 50);
         } else {
-            return this.piece.newC();
-        }*/
-        return this.piece.newL(); // Returns same piece type and avoids logic for testing
+            //Cube shape
+            return new Piece(0, 0, 0, 50, 50, 0, 50, 50);
+        }
     }
 
     public void Left(){
@@ -174,6 +177,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
     public void Rotate(){
         boolean collide = false;
+        boolean border = false;
         int distance_y = this.piece.getPositions().get(0).getY();
         int distance_x = this.piece.getPositions().get(0).getX();
         for(int i = 0; i < this.pieces.size(); i++){
@@ -187,10 +191,13 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                     if((positions.get(k).getX() == new_x + this.size || positions.get(k).getX() == new_x - this.size) && (positions.get(k).getY() == new_y - this.size || positions.get(k).getY() == new_y + this.size)){
                         collide = true;
                     }
+                    if(new_x >= this.base - this.size || new_x <= - this.base){
+                        border = true;
+                    }
                 }
             }
         }
-        if(!collide) {
+        if(!collide && !border) {
             ArrayList<Position> positions = this.piece.getPositions();
             for (int i = 0; i < positions.size(); i++) {
                 int y = positions.get(i).getY() - distance_y;
