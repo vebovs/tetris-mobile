@@ -12,8 +12,8 @@ import android.view.View;
 import java.util.Locale;
 
 public class MainActivity extends Activity {
-    SharedPreferences sharedPreferences;
-    SharedPreferences.OnSharedPreferenceChangeListener spChanged = new SharedPreferences.OnSharedPreferenceChangeListener() {
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.OnSharedPreferenceChangeListener spChanged = new SharedPreferences.OnSharedPreferenceChangeListener() {
         @Override
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
                 String str = sharedPreferences.getString(s, "-1");
@@ -41,8 +41,8 @@ public class MainActivity extends Activity {
         this.sharedPreferences.registerOnSharedPreferenceChangeListener(this.spChanged);
     }
 
-    private void setLanguage(String langCode){
-        Locale locale = new Locale(langCode);
+    private void setLanguage(String countryCode){
+        Locale locale = new Locale(countryCode);
         Locale.setDefault(locale);
         Configuration configuration = new Configuration();
         configuration.setLocale(locale);

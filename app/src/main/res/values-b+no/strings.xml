@@ -6,7 +6,11 @@
     <string name="rotate">Roter</string>
     <string name="start">Start</string>
     <string name="settings">Instillinger</string>
+    <string name="help">Hjelp</string>
     <string name="pick_language">Velg et språk!</string>
+    <string name="resume">Gjenoppta</string>
+    <string name="pause">Pause</string>
+    <string name="exit">Avslutt</string>
     <string-array name="languages">
         <item name="english">Engelsk</item>
         <item name="norwegian">Norsk</item>
