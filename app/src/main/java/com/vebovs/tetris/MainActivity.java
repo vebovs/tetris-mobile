@@ -1,28 +1,60 @@
 package com.vebovs.tetris;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 
+import java.util.Locale;
+
 public class MainActivity extends Activity {
-    private GameView gameView;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.OnSharedPreferenceChangeListener spChanged = new SharedPreferences.OnSharedPreferenceChangeListener() {
+        @Override
+        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
+                String str = sharedPreferences.getString(s, "-1");
+                Log.i("Language:", str);
+                if(str.equals("English") || str.equals("Engelsk")){
+                    setLanguage("en");
+                } else if(str.equals("Norwegian") || str.equals("Norsk")){
+                    setLanguage("no");
+                }
+            }
+        };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        this.gameView = findViewById(R.id.gameView);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String str = this.sharedPreferences.getString("language", "-1");
+        Log.i("Language: ", str);
+        if(str.equals("English") || str.equals("Engelsk")){
+            setLanguage("en");
+        } else if(str.equals("Norwegian") || str.equals("Norsk")){
+            setLanguage("no");
+        }
+        this.sharedPreferences.registerOnSharedPreferenceChangeListener(this.spChanged);
     }
 
-    public void Left(View view){
-        this.gameView.Left();
+    private void setLanguage(String langCode){
+        Locale locale = new Locale(langCode);
+        Locale.setDefault(locale);
+        Configuration configuration = new Configuration();
+        configuration.setLocale(locale);
+        getBaseContext().getResources().updateConfiguration(configuration, getBaseContext().getResources().getDisplayMetrics());
+        setContentView(R.layout.activity_main);
     }
 
-    public void Right(View view){
-        this.gameView.Right();
+    public void startGame(View view){
+        startActivity(new Intent(this, GameActivity.class));
     }
 
-    public void Rotate(View view){
-        this.gameView.Rotate();
+    public void startSettings(View view){
+        startActivity(new Intent(this, SettingsActivity.class));
     }
 }

@@ -6,49 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.vebovs.tetris.GameView
-        android:id="@+id/gameView"
-        android:layout_width="match_parent"
-        android:layout_height="521dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
 
-    <LinearLayout
+    <Button
+        android:id="@+id/btnStart"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:orientation="horizontal"
+        android:layout_height="100dp"
+        android:onClick="startGame"
+        android:text="@string/start"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gameView"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.404" />
 
-        <Button
-            android:id="@+id/btnLeft"
-            android:layout_width="137dp"
-            android:layout_height="80dp"
-            android:text="@string/left"
-            android:onClick="Left"/>
-
-        <Button
-            android:id="@+id/btnRotate"
-            android:layout_width="137dp"
-            android:layout_height="80dp"
-            android:text="@string/rotate"
-            android:onClick="Rotate"/>
-
-        <Button
-            android:id="@+id/btnRight"
-            android:layout_width="137dp"
-            android:layout_height="80dp"
-            android:text="@string/right"
-            android:onClick="Right"/>
-
-    </LinearLayout>
-
-
+    <Button
+        android:id="@+id/btnSettings"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:onClick="startSettings"
+        android:text="@string/settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnStart"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

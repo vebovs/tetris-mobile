@@ -1,8 +1,5 @@
 package com.vebovs.tetris;
 
-import android.graphics.Color;
-import android.graphics.Paint;
-
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
