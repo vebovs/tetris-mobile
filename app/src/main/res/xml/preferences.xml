@@ -3,15 +3,15 @@
     <ListPreference
         android:key="language"
         android:entries="@array/languages"
-        android:entryValues="@array/languages"
-        android:defaultValue="English"
+        android:entryValues="@array/languages_values"
+        android:defaultValue="en"
         android:summary="@string/pick_language" />
 
     <ListPreference
         android:key="difficulty"
         android:entries="@array/difficulties"
-        android:entryValues="@array/difficulties"
-        android:defaultValue="Easy"
+        android:entryValues="@array/difficulties_values"
+        android:defaultValue="450"
         android:summary="@string/pick_difficulty"
         />
 </PreferenceScreen>

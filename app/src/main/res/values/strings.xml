@@ -14,12 +14,30 @@
         <item name="english">English</item>
         <item name="norwegian">Norwegian</item>
     </string-array>
+    <string-array name="languages_values">
+        <item name="english">en</item>
+        <item name="norwegian">no</item>
+    </string-array>
     <string name="tutorial">
         The goal of Tetris is to fill the area using whatever pieces are given to you and leave as few unfilled spaces as possible.
         The piece will steadily fall and it’s your job to control where they fall to achieve the previously stated goal.
         To aid you in this matter you can move the piece horizontally left and right using the Left and Right buttons displayed.
         Each click of each button moves the piece in single increments in whatever direction you’ve specified.
         The Rotate button allows you to rotate the piece 90 degrees in a clockwise direction, again, to help you better fit the piece.
+    </string>
+    <string name="difficulty">
+        To change the difficulty you need to access the settings menu through the main menu.
+        When there, click the Click here to pick a difficulty button.
+        This will bring up a menu with difficulty options.
+        Click on one of these to select it.
+        You will then be sent back to the main menu.
+    </string>
+    <string name="language">
+        To change the language you need to access the settings menu through the main menu.
+        When there, click the Click here to pick a language button.
+        This will bring up a menu with language options.
+        Click on one of these to select it.
+        You will then be sent back to the main menu.
     </string>
     <string name="how_to_play">How to play</string>
     <string name="change_difficulty">How to change difficulty</string>
@@ -28,6 +46,11 @@
         <item name="easy">Easy</item>
         <item name="normal">Normal</item>
         <item name="hard">Hard</item>
+    </string-array>
+    <string-array name="difficulties_values">
+        <item name="easy">650</item>
+        <item name="normal">450</item>
+        <item name="hard">250</item>
     </string-array>
     <string name="pick_difficulty">Click here to pick a difficulty</string>
 </resources>

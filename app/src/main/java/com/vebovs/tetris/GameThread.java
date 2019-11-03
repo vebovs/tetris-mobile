@@ -12,7 +12,7 @@ public class GameThread extends Thread {
     private GameView gameView;
     private boolean run = false;
     private boolean pause = false;
-    private int time = 150; // Time between every drawing
+    private int time = 650; // Time between every drawing
 
     public GameThread(SurfaceHolder holder, GameView gameView){
         this.holder = holder;

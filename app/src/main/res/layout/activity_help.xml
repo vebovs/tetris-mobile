@@ -22,11 +22,28 @@
         android:id="@+id/btnChangeLanguage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="viewLanguage"
         android:text="@string/change_language" />
+
+    <TextView
+        android:id="@+id/tvLanguage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="vertical"
+        android:text="@string/language"/>
 
     <Button
         android:id="@+id/btnChangeDifficulty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="viewDifficulty"
         android:text="@string/change_difficulty" />
+
+    <TextView
+        android:id="@+id/tvDifficulty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="vertical"
+        android:text="@string/difficulty"/>
+
 </LinearLayout>

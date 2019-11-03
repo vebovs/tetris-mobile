@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,20 +13,12 @@ public class GameActivity extends Activity {
     private String resume;
     private String pause;
     private String exit;
-
     private SharedPreferences sharedPreferences;
     private SharedPreferences.OnSharedPreferenceChangeListener spChanged = new SharedPreferences.OnSharedPreferenceChangeListener() {
         @Override
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
-            String str = sharedPreferences.getString(s, "-1");
-            Log.i("changed: ", str);
-            if(str.equals("Easy") || str.equals("Enkelt")){
-                setThreadTime(650);
-            } else if(str.equals("Normal") || str.equals("Normalt")){
-                setThreadTime(450);
-            } else {
-                setThreadTime(250);
-            }
+            String time = sharedPreferences.getString(s, "-1");
+            if(!time.equals("-1")) setThreadTime(Integer.parseInt(time));
         }
     };
 
@@ -41,19 +32,12 @@ public class GameActivity extends Activity {
         this.exit = getResources().getString(R.string.exit);
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String str = this.sharedPreferences.getString("difficulty", "-1");
-        Log.i("Got: ", str);
-        if(str.equals("Easy") || str.equals("Enkelt")){
-            setThreadTime(650);
-        } else if(str.equals("Normal") || str.equals("Normalt")){
-            setThreadTime(450);
-        } else {
-            setThreadTime(250);
-        }
+        String time = sharedPreferences.getString("difficulty", "-1");
+        if(!time.equals("-1")) setThreadTime(Integer.parseInt(time));
         this.sharedPreferences.registerOnSharedPreferenceChangeListener(this.spChanged);
     }
 
-    public void setThreadTime(int time){
+    private void setThreadTime(int time){
         this.gameView.getGameThread().setTime(time);
     }
 
@@ -66,6 +50,7 @@ public class GameActivity extends Activity {
         return true;
     }
 
+    @Override
     public boolean onOptionsItemSelected(MenuItem item){
         if (item.getTitle().equals(this.exit)){
             this.gameView.getGameThread().setRunning(false);

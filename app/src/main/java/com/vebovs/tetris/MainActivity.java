@@ -15,12 +15,8 @@ public class MainActivity extends Activity {
     private SharedPreferences.OnSharedPreferenceChangeListener spChanged = new SharedPreferences.OnSharedPreferenceChangeListener() {
         @Override
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
-                String str = sharedPreferences.getString(s, "-1");
-                if(str.equals("English") || str.equals("Engelsk")){
-                    setLanguage("en");
-                } else if(str.equals("Norwegian") || str.equals("Norsk")){
-                    setLanguage("no");
-                }
+                String countryCode = sharedPreferences.getString(s, "-1");
+                setLanguage(countryCode);
             }
         };
 
@@ -29,22 +25,20 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String str = this.sharedPreferences.getString("language", "-1");
-        if(str.equals("English") || str.equals("Engelsk")){
-            setLanguage("en");
-        } else if(str.equals("Norwegian") || str.equals("Norsk")){
-            setLanguage("no");
-        }
+        String countryCode = this.sharedPreferences.getString("language", "-1");
+        setLanguage(countryCode);
         this.sharedPreferences.registerOnSharedPreferenceChangeListener(this.spChanged);
     }
 
     private void setLanguage(String countryCode){
-        Locale locale = new Locale(countryCode);
-        Locale.setDefault(locale);
-        Configuration configuration = new Configuration();
-        configuration.setLocale(locale);
-        getBaseContext().getResources().updateConfiguration(configuration, getBaseContext().getResources().getDisplayMetrics());
-        setContentView(R.layout.activity_main);
+        if(!countryCode.equals("-1")){
+            Locale locale = new Locale(countryCode);
+            Locale.setDefault(locale);
+            Configuration configuration = new Configuration();
+            configuration.setLocale(locale);
+            getBaseContext().getResources().updateConfiguration(configuration, getBaseContext().getResources().getDisplayMetrics());
+            setContentView(R.layout.activity_main);
+        }
     }
 
     public void startGame(View view){

@@ -15,12 +15,30 @@
         <item name="english">Engelsk</item>
         <item name="norwegian">Norsk</item>
     </string-array>
+    <string-array name="languages_values">
+        <item name="english">en</item>
+        <item name="norwegian">no</item>
+    </string-array>
     <string name="tutorial">
         Målet i Tetris er å fylle området ved å bruke brikkene som er gitt deg og etterlate så få tomrom som mulig.
         Brikken vil jevnt falle og det er din jobb å kontrollere hvor de faller for å oppnå målet.
         Til å hjelpe deg med dette kan du flytte brikken horisontalt venstre og høyre ved å bruke Venstre og Høyre knappene på skjermen.
         Hvert klikk av knappene flytter brikken med ett enkelt inkrement i hvilken retning du spesifiserte.
         Roteringsknappen lar deg rotere brikken 90 grader med klokken, slik at du kan bedre tilpasse brikken til å fylle tomrommene.
+    </string>
+    <string name="difficulty">
+        For å endre vanskelighetsgraden må du gå på instillinger i hovedmenyen.
+        Klikk så på Klikk her for å velge en vanskelighetsgrad knappen.
+        Dette vil vise frem en meny med valg av vanskelighetsgrad.
+        Klikk på en av dem for å velge den.
+        Etterpå vil du bli sendt tilbake til hovedmenyen.
+    </string>
+    <string name="language">
+        For å endre språket må du gå på instillinger i hovedmenyen.
+        Klikk så på Klikk her for å velge et språk knappen.
+        Dette vil vise frem en meny med valg av språk.
+        Klikk på en av dem for å velge den.
+        Etterpå vil du bli sendt tilbake til hovedmenyen.
     </string>
     <string name="how_to_play">Hvordan spille</string>
     <string name="change_difficulty">Hvordan endre vanskelighetsgrad</string>
@@ -30,5 +48,10 @@
         <item name="normal">Normalt</item>
         <item name="hard">Vanskelig</item>
     </string-array>
-    <string name="pick_difficulty">Click here to pick a difficulty</string>
+    <string-array name="difficulties_values">
+        <item name="easy">650</item>
+        <item name="normal">450</item>
+        <item name="hard">250</item>
+    </string-array>
+    <string name="pick_difficulty">Klikk her for å velge en vanskelighetsgrad</string>
 </resources>
