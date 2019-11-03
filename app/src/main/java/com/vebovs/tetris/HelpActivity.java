@@ -3,6 +3,7 @@ package com.vebovs.tetris;
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -70,5 +71,11 @@ public class HelpActivity extends Activity {
             this.tvDifficulty.setLayoutParams(params);
             this.difficulty = false;
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK) this.finishAndRemoveTask();
+        return super.onKeyDown(keyCode, event);
     }
 }

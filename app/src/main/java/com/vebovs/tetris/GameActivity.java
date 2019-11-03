@@ -54,7 +54,7 @@ public class GameActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item){
         if (item.getTitle().equals(this.exit)){
             this.gameView.getGameThread().setRunning(false);
-            finish();
+            this.finishAndRemoveTask();
         }
         else if (item.getTitle().equals(this.pause)) {
             this.gameView.getGameThread().setPause(true);

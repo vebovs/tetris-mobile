@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.KeyEvent;
 
 public class SettingsActivity extends Activity {
     SharedPreferences sharedPreferences;
@@ -25,6 +26,13 @@ public class SettingsActivity extends Activity {
     }
 
     public void Changed(){
+        this.finishAndRemoveTask();
         startActivity(new Intent(this, MainActivity.class));
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK) this.finishAndRemoveTask();
+        return super.onKeyDown(keyCode, event);
     }
 }
