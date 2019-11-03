@@ -6,4 +6,12 @@
         android:entryValues="@array/languages"
         android:defaultValue="English"
         android:summary="@string/pick_language" />
+
+    <ListPreference
+        android:key="difficulty"
+        android:entries="@array/difficulties"
+        android:entryValues="@array/difficulties"
+        android:defaultValue="Easy"
+        android:summary="@string/pick_difficulty"
+        />
 </PreferenceScreen>

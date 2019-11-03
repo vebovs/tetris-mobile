@@ -6,7 +6,7 @@
     <string name="start">Start</string>
     <string name="settings">Settings</string>
     <string name="help">Help</string>
-    <string name="pick_language">Pick a language!</string>
+    <string name="pick_language">Click here to pick a language</string>
     <string name="resume">Resume</string>
     <string name="pause">Pause</string>
     <string name="exit">Exit</string>
@@ -21,4 +21,13 @@
         Each click of each button moves the piece in single increments in whatever direction you’ve specified.
         The Rotate button allows you to rotate the piece 90 degrees in a clockwise direction, again, to help you better fit the piece.
     </string>
+    <string name="how_to_play">How to play</string>
+    <string name="change_difficulty">How to change difficulty</string>
+    <string name="change_language">How to change language</string>
+    <string-array name="difficulties">
+        <item name="easy">Easy</item>
+        <item name="normal">Normal</item>
+        <item name="hard">Hard</item>
+    </string-array>
+    <string name="pick_difficulty">Click here to pick a difficulty</string>
 </resources>

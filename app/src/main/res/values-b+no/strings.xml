@@ -7,7 +7,7 @@
     <string name="start">Start</string>
     <string name="settings">Instillinger</string>
     <string name="help">Hjelp</string>
-    <string name="pick_language">Velg et språk!</string>
+    <string name="pick_language">Klikk her for å velge et språk</string>
     <string name="resume">Gjenoppta</string>
     <string name="pause">Pause</string>
     <string name="exit">Avslutt</string>
@@ -22,4 +22,13 @@
         Hvert klikk av knappene flytter brikken med ett enkelt inkrement i hvilken retning du spesifiserte.
         Roteringsknappen lar deg rotere brikken 90 grader med klokken, slik at du kan bedre tilpasse brikken til å fylle tomrommene.
     </string>
+    <string name="how_to_play">Hvordan spille</string>
+    <string name="change_difficulty">Hvordan endre vanskelighetsgrad</string>
+    <string name="change_language">Hvordan endre språk</string>
+    <string-array name="difficulties">
+        <item name="easy">Enkelt</item>
+        <item name="normal">Normalt</item>
+        <item name="hard">Vanskelig</item>
+    </string-array>
+    <string name="pick_difficulty">Click here to pick a difficulty</string>
 </resources>

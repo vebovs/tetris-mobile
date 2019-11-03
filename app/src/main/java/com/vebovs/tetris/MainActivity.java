@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.View;
 
 import java.util.Locale;
@@ -17,7 +16,6 @@ public class MainActivity extends Activity {
         @Override
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
                 String str = sharedPreferences.getString(s, "-1");
-                Log.i("Language:", str);
                 if(str.equals("English") || str.equals("Engelsk")){
                     setLanguage("en");
                 } else if(str.equals("Norwegian") || str.equals("Norsk")){
@@ -32,7 +30,6 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         String str = this.sharedPreferences.getString("language", "-1");
-        Log.i("Language: ", str);
         if(str.equals("English") || str.equals("Engelsk")){
             setLanguage("en");
         } else if(str.equals("Norwegian") || str.equals("Norsk")){
