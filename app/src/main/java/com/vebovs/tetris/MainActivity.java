@@ -57,4 +57,8 @@ public class MainActivity extends Activity {
     public void startSettings(View view){
         startActivity(new Intent(this, SettingsActivity.class));
     }
+
+    public void startHelp(View view){
+        startActivity(new Intent(this, HelpActivity.class));
+    }
 }

@@ -14,4 +14,11 @@
         <item name="english">English</item>
         <item name="norwegian">Norwegian</item>
     </string-array>
+    <string name="tutorial">
+        The goal of Tetris is to fill the area using whatever pieces are given to you and leave as few unfilled spaces as possible.
+        The piece will steadily fall and it’s your job to control where they fall to achieve the previously stated goal.
+        To aid you in this matter you can move the piece horizontally left and right using the Left and Right buttons displayed.
+        Each click of each button moves the piece in single increments in whatever direction you’ve specified.
+        The Rotate button allows you to rotate the piece 90 degrees in a clockwise direction, again, to help you better fit the piece.
+    </string>
 </resources>

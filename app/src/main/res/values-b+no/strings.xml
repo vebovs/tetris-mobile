@@ -15,4 +15,11 @@
         <item name="english">Engelsk</item>
         <item name="norwegian">Norsk</item>
     </string-array>
+    <string name="tutorial">
+        Målet i Tetris er å fylle området ved å bruke brikkene som er gitt deg og etterlate så få tomrom som mulig.
+        Brikken vil jevnt falle og det er din jobb å kontrollere hvor de faller for å oppnå målet.
+        Til å hjelpe deg med dette kan du flytte brikken horisontalt venstre og høyre ved å bruke Venstre og Høyre knappene på skjermen.
+        Hvert klikk av knappene flytter brikken med ett enkelt inkrement i hvilken retning du spesifiserte.
+        Roteringsknappen lar deg rotere brikken 90 grader med klokken, slik at du kan bedre tilpasse brikken til å fylle tomrommene.
+    </string>
 </resources>
