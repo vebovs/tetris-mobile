@@ -7,8 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
-
 public class HelpActivity extends Activity {
     private TextView tvTutorial;
     private TextView tvLanguage;
@@ -18,7 +16,7 @@ public class HelpActivity extends Activity {
     private boolean difficulty;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
         this.tvTutorial = findViewById(R.id.tvTutorial);
@@ -35,7 +33,7 @@ public class HelpActivity extends Activity {
     public void viewTutorial(View view){
         if(!this.tutorial) {
             ViewGroup.LayoutParams params = this.tvTutorial.getLayoutParams();
-            params.height = 400;
+            params.height = 250;
             this.tvTutorial.setLayoutParams(params);
             this.tutorial = true;
         } else {
@@ -49,7 +47,7 @@ public class HelpActivity extends Activity {
     public void viewLanguage(View view){
         if(!this.language) {
             ViewGroup.LayoutParams params = this.tvLanguage.getLayoutParams();
-            params.height = 220;
+            params.height = 250;
             this.tvLanguage.setLayoutParams(params);
             this.language = true;
         } else {
@@ -63,7 +61,7 @@ public class HelpActivity extends Activity {
     public void viewDifficulty(View view){
         if(!this.difficulty) {
             ViewGroup.LayoutParams params = this.tvDifficulty.getLayoutParams();
-            params.height = 220;
+            params.height = 250;
             this.tvDifficulty.setLayoutParams(params);
             this.difficulty = true;
         } else {

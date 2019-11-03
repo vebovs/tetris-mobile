@@ -1,7 +1,5 @@
 package com.vebovs.tetris;
 
-import androidx.annotation.Nullable;
-
 import java.util.ArrayList;
 
 public class Piece {
@@ -49,12 +47,4 @@ class Position {
         this.y = y;
     }
 
-    @Override
-    public boolean equals(@Nullable Object obj) {
-        if(this == obj) return true;
-        if(obj == null || getClass() != obj.getClass()) return false;
-
-        Position position = (Position) obj;
-        return this.x == position.getX() && this.y == position.getY();
-    }
 }

@@ -1,10 +1,6 @@
 package com.vebovs.tetris;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.Canvas;
-import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.SurfaceHolder;
 
 public class GameThread extends Thread {
