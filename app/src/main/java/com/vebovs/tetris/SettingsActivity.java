@@ -32,7 +32,10 @@ public class SettingsActivity extends Activity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode == KeyEvent.KEYCODE_BACK) this.finishAndRemoveTask();
+        if(keyCode == KeyEvent.KEYCODE_BACK) {
+            this.finishAndRemoveTask();
+            startActivity(new Intent(this, MainActivity.class));
+        }
         return super.onKeyDown(keyCode, event);
     }
 }

@@ -188,7 +188,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                     if((positions.get(k).getX() == new_x + this.size || positions.get(k).getX() == new_x - this.size) && (positions.get(k).getY() == new_y - this.size || positions.get(k).getY() == new_y + this.size)){
                         collide = true;
                     }
-                    if(new_x >= this.base - this.size || new_x <= - this.base){
+                    if(new_x >= this.base - this.size || new_x <= - this.base || new_y == this.bottom + this.size){
                         border = true;
                     }
                 }

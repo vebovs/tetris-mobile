@@ -1,6 +1,7 @@
 package com.vebovs.tetris;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.KeyEvent;
@@ -75,7 +76,10 @@ public class HelpActivity extends Activity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode == KeyEvent.KEYCODE_BACK) this.finishAndRemoveTask();
+        if(keyCode == KeyEvent.KEYCODE_BACK) {
+            this.finishAndRemoveTask();
+            startActivity(new Intent(this, MainActivity.class));
+        }
         return super.onKeyDown(keyCode, event);
     }
 }

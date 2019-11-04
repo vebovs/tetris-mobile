@@ -42,14 +42,17 @@ public class MainActivity extends Activity {
     }
 
     public void startGame(View view){
+        this.finishAndRemoveTask();
         startActivity(new Intent(this, GameActivity.class));
     }
 
     public void startSettings(View view){
+        this.finishAndRemoveTask();
         startActivity(new Intent(this, SettingsActivity.class));
     }
 
     public void startHelp(View view){
+        this.finishAndRemoveTask();
         startActivity(new Intent(this, HelpActivity.class));
     }
 
